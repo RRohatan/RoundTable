@@ -20,7 +20,7 @@
 
         <a href="/">
             {{-- Usamos directamente la etiqueta img para especificar el logo blanco --}}
-            <img src="{{ asset('image/LOGO cosmox2.svg') }}" alt="Logo de Mi Empresa" class="w-56 h-56 object-contain" />
+            <img src="{{ asset('images/mi-logo.svg') }}" alt="Logo de Mi Empresa" class="w-56 h-56 object-contain" />
             {{-- Asegúrate que 'logo-white.svg' sea el nombre de tu archivo de logo blanco --}}
         </a>
 
