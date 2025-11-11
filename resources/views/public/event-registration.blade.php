@@ -80,37 +80,38 @@
                     </div>
                 </div>
 
-                <div class="mt-4">
-                    <label for="portfolio_url" class="block text-sm font-medium text-gray-700">Portafolio (PDF, JPG, PNG - Max 2MB)</label>
-                    <input type="file" name="portfolio_url" id="portfolio_url" class="mt-1 block w-full text-sm text-gray-500
-                        file:mr-4 file:py-2 file:px-4
-                        file:rounded-md file:border-0
-                        file:text-sm file:font-semibold
-                        file:bg-indigo-50 file:text-indigo-700
-                        hover:file:bg-indigo-100"
-                    >
-                </div>
+       <h3 class="text-xl font-semibold border-t pt-6 mt-6 mb-4">Participación en el Evento</h3>
 
-                <h3 class="text-xl font-semibold border-t pt-6 mt-6 mb-4">Participación en el Evento</h3>
+<div class="mt-4">
+    <label class="block text-sm font-medium text-gray-700">¿Cómo participas?</label>
+    <div class="mt-2 space-y-2">
+        <div class="flex items-center">
+            <input id="role_buyer" name="role" type="radio" value="buyer" {{ old('role') == 'buyer' ? 'checked' : '' }} required class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+            <label for="role_buyer" class="ml-3 block text-sm font-medium text-gray-700">Demandante (Busco productos/servicios)</label>
+        </div>
+        <div class="flex items-center">
+            <input id="role_supplier" name="role" type="radio" value="supplier" {{ old('role') == 'supplier' ? 'checked' : '' }} required class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+            <label for="role_supplier" class="ml-3 block text-sm font-medium text-gray-700">Oferente (Ofrezco productos/servicios)</label>
+        </div>
+    </div>
+</div>
 
-                <div class="mt-4">
-                    <label class="block text-sm font-medium text-gray-700">¿Cómo participas?</label>
-                    <div class="mt-2 space-y-2">
-                        <div class="flex items-center">
-                            <input id="role_buyer" name="role" type="radio" value="buyer" {{ old('role') == 'buyer' ? 'checked' : '' }} required class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                            <label for="role_buyer" class="ml-3 block text-sm font-medium text-gray-700">Demandante (Busco productos/servicios)</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input id="role_supplier" name="role" type="radio" value="supplier" {{ old('role') == 'supplier' ? 'checked' : '' }} required class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                            <label for="role_supplier" class="ml-3 block text-sm font-medium text-gray-700">Oferente (Ofrezco productos/servicios)</label>
-                        </div>
-                    </div>
-                </div>
+<div class="mt-4">
+    <label for="role_description" class="block text-sm font-medium text-gray-700">Describe brevemente qué buscas o qué ofreces:</label>
+    <textarea name="role_description" id="role_description" rows="3" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">{{ old('role_description') }}</textarea>
+</div>
 
-                <div class="mt-4">
-                    <label for="role_description" class="block text-sm font-medium text-gray-700">Describe brevemente qué buscas o qué ofreces:</label>
-                    <textarea name="role_description" id="role_description" rows="3" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">{{ old('role_description') }}</textarea>
-                </div>
+<h3 class="text-xl font-semibold border-t pt-6 mt-6 mb-4">Portafolio (Solo Oferente)</h3>
+
+<div id="portfolio_wrapper" class="mt-4">
+    <label for="portfolio_url" class="block text-sm font-medium text-gray-700">Portafolio (PDF, JPG, PNG - Max 2MB)</label>
+    <input type="file" name="portfolio_url" id="portfolio_url" class="mt-1 block w-full text-sm text-gray-500
+        file:mr-4 file:py-2 file:px-4
+        file:rounded-md file:border-0
+        file:text-sm file:font-semibold
+        file:bg-indigo-50 file:text-indigo-700
+        hover:file:bg-indigo-100">
+</div>
 
 
                 <div class="flex items-center justify-end mt-8">
@@ -123,5 +124,31 @@
         </div>
     </div>
 
+
+    <script>
+    const buyer = document.getElementById('role_buyer');
+    const supplier = document.getElementById('role_supplier');
+    const portfolioWrapper = document.getElementById('portfolio_wrapper');
+    const portfolioInput = document.getElementById('portfolio_url');
+
+    function checkRole() {
+        if (buyer.checked) {
+            portfolioWrapper.style.display = 'none';
+            portfolioInput.disabled = true;
+        } else {
+            portfolioWrapper.style.display = 'block';
+            portfolioInput.disabled = false;
+        }
+    }
+
+    buyer.addEventListener('change', checkRole);
+    supplier.addEventListener('change', checkRole);
+
+    // Ejecutamos una vez por si old('role') venía seleccionado
+    checkRole();
+</script>
+
 </body>
+
+
 </html>
