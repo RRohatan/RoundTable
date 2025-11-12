@@ -13,6 +13,7 @@
 
         <div class="bg-white p-8 rounded-lg shadow-md">
 
+
             <h1 class="text-3xl font-bold mb-2">Inscripción a:</h1>
             <h2 class="text-2xl text-gray-700 mb-6">{{ $event->name }}</h2>
 

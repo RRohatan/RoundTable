@@ -15,7 +15,7 @@
 
         <div x-data="{ view: 'login' }" class="min-h-screen flex flex-col lg:flex-row">
 
-         <div class="w-full lg:w-1/2 min-h-[300px] lg:min-h-screen bg-cover bg-center" style="background-image: url('{{ asset('images/cosmox-bg.jpg') }}');">
+         <div class="w-full lg:w-1/2 min-h-[300px] lg:min-h-screen bg-cover bg-center">
     <div class="w-full h-full flex flex-col justify-center items-center bg-black bg-opacity-60 p-12 text-center">
 
         <a href="/">
