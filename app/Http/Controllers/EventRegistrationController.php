@@ -60,7 +60,7 @@ class EventRegistrationController extends Controller
             'nit' => 'required|string|max:255|unique:participant_profiles,nit',
             'phone' => 'required|string|max:20',
             'sector' => 'required|string|max:255',
-            'portfolio_url' => 'nullable|file|mimes:pdf,jpg,png|max:10240', // PDF o Imagen, max 2MB
+            'portfolio_url' => 'nullable|file|mimes:pdf,jpg,png|max:20480', // PDF o Imagen, max 2MB
 
             // Datos de la Inscripción
             'role' => 'required|in:supplier,buyer', // 'oferente' o 'demandante'
