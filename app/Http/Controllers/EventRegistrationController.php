@@ -60,7 +60,8 @@ class EventRegistrationController extends Controller
             'nit' => 'required|string|max:255|unique:participant_profiles,nit',
             'phone' => 'required|string|max:20',
             'sector' => 'required|string|max:255',
-            'portfolio_url' => 'nullable|file|mimes:pdf,jpg,png|max:20480', // PDF o Imagen, max 2MB
+            'portfolio_url' => 'nullable|file|mimes:pdf,jpg,png|max:30720', 
+
 
             // Datos de la Inscripción
             'role' => 'required|in:supplier,buyer', // 'oferente' o 'demandante'
@@ -124,7 +125,7 @@ class EventRegistrationController extends Controller
             DB::commit(); // Todo salió bien, confirmar cambios
 
             // 7. (Opcional pero recomendado) Enviar email de confirmación
-            // Mail::to($user->email)->send(new RegistrationSuccessMail($event));
+           //  Mail::to($user->email)->send(new RegistrationSuccessMail($event));
 
         } catch (\Exception $e) {
             DB::rollBack(); // Algo falló, revertir

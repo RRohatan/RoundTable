@@ -105,7 +105,7 @@
 <h3 class="text-xl font-semibold border-t pt-6 mt-6 mb-4">Portafolio (Solo Oferente)</h3>
 
 <div id="portfolio_wrapper" class="mt-4">
-    <label for="portfolio_url" class="block text-sm font-medium text-gray-700">Portafolio (PDF, JPG, PNG - Max 2MB)</label>
+    <label for="portfolio_url" class="block text-sm font-medium text-gray-700">Portafolio (PDF, JPG, PNG - OJO 👁️ Max 30MB)</label>
     <input type="file" name="portfolio_url" id="portfolio_url" class="mt-1 block w-full text-sm text-gray-500
         file:mr-4 file:py-2 file:px-4
         file:rounded-md file:border-0
